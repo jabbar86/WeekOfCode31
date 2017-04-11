@@ -1,0 +1,31 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+bool vowel(char c)
+{
+if(c=='a'||c=='e'||c=='i'||c=='o'||c=='u'||c=='y')
+return true;
+return false;
+}
+int main() {
+string str;
+cin>>str;
+bool isVowel=vowel(str[0]);
+bool flag=true;
+for(int i=1;flag && i<str.length();i++)
+{
+if(isVowel)
+{
+if(vowel(str[i]))
+flag=false;
+}
+if(str[i]==str[i-1])
+flag=false;
+isVowel=vowel(str[i]);
+}
+cout<<((flag)?"Yes":"No");
+return 0;
+}
